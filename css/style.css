@@ -3,6 +3,7 @@
 *, *::before, *::after {
   box-sizing: border-box;
   font-family: sans-serif;
+  font-weight: 600;
 }
 
 body {
@@ -38,6 +39,22 @@ body {
 
 .output {
   grid-column: 1 / -1;
-  background: rgba(0, 0, 0, .75);
-  color: #FFF;
+  background: rgba(0, 0, 0, 0.75);
+  color: rgba(255, 255, 255, 0.75);
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  justify-content: space-around;
+  padding: 10px;
+  word-wrap: break-word;
 }
+
+.output .previous-operand {
+  font-size: 1.5rem;
+}
+
+.output .current-operand {
+  font-size: 1.5rem;
+  color: rgba(255, 255, 255, 0.9);
+}
+
