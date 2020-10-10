@@ -33,6 +33,7 @@ class Calculator {
   }
   
   compute() {
+    console.log(this.operation);
     let computation;
     const prev = parseFloat(this.previousOperand);
     const current = parseFloat(this.currentOperand);
@@ -46,7 +47,7 @@ class Calculator {
       case "-":
         computation = prev - current;
         break;
-      case "*":
+      case "×":
         computation = prev * current;
         break;
       case "÷":
