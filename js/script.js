@@ -22,24 +22,21 @@ class Calculator {
   
   chooseOperation(operation) {
     if (this.currentOperand === "") {
-      return;
+      return
     }
     if (this.previousOperand !== "") {
       this.compute();
     }
-    this.operation = operation;
-    this.previousOperand = this.currentOperand;
-    this.currentOperand = "";
+    this.operation = operation
+    this.previousOperand = this.currentOperand
+    this.currentOperand = ""
   }
   
   compute() {
-    console.log(this.operation);
-    let computation;
-    const prev = parseFloat(this.previousOperand);
-    const current = parseFloat(this.currentOperand);
-    if (isNaN(prev) || isNaN(current)) {
-      return;
-    }
+    let computation
+    const prev = parseFloat(this.previousOperand)
+    const current = parseFloat(this.currentOperand)
+    if (isNaN(prev) || isNaN(current)) return
     switch (this.operation) {
       case "+":
         computation = prev + current;
@@ -62,18 +59,28 @@ class Calculator {
   }
   
   getDisplayNumber(number) {
-    const floatNumber = parseFloat(number);
-    if (isNaN(floatNumber)) {
-      return "";
+    const stringNumber = number.toString();
+    const integerDigits = parseFloat(stringNumber.split(".")[0]);
+    const decimalDigits = stringNumber.split(".")[1];
+    let integerDisplay;
+    if (isNaN(integerDigits)) {
+      integerDisplay = ""
+    } else {
+      integerDisplay = integerDigits.toLocaleString('en', { maximumFractionDigits: 0 })
     }
-    return floatNumber.toLocaleString("en");
+    if (decimalDigits != null) {
+      return `${integerDisplay}.${decimalDigits}`
+    } else {
+      return integerDisplay
+    }
   }
   
   updateDisplay() {
-    this.currentOperandTextElement.innerText = this.getDisplayNumber(this.currentOperand)
+    this.currentOperandTextElement.innerText = this.getDisplayNumber(this.currentOperand);
     if (this.operation != null) {
-      this.previousOperandTextElement.innerText =
-      `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`;
+      this.previousOperandTextElement.innerText = `${this.getDisplayNumber(this.previousOperand)} ${this.operation}`;
+    } else {
+      this.previousOperandTextElement.innerText = "";
     }
   }
 }
