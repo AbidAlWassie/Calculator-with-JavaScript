@@ -9,7 +9,7 @@
 body {
   margin: 0;
   padding: 0;
-  background: linear-gradient(to right, #00AAFF, #00FF6C);
+  background: linear-gradient(to right, #0d0063, #00cbff);
 }
 
 .calculator-grid {
@@ -57,4 +57,3 @@ body {
   font-size: 1.5rem;
   color: rgba(255, 255, 255, 0.9);
 }
-
